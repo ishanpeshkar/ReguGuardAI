@@ -12,3 +12,4 @@ tiktoken
 dotenv
 pypdf
 langchain_community
+plotly>=5.0.0

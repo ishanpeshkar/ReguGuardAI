@@ -1,7 +1,8 @@
 {
   "company_name": "SwiftLend FinTech",
   "entity_type": "NBFC",
-  "services": ["Personal Loans", "Micro-lending"],
+  "services": ["Micro-lending", "Personal Loans"],
   "asset_size": "450 Cr",
+  "annual_turnover": "450 Cr",
   "has_internal_ombudsman": false
 }

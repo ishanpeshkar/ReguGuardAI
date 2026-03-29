@@ -1,0 +1,9 @@
+{
+  "company_name": "GreenRoots Small Finance Bank",
+  "entity_type": "Small Finance Bank",
+  "services": ["Micro-finance", "Rural Deposits", "MSME Loans"],
+  "asset_size": "2200 Cr",
+  "annual_turnover": "2200 Cr",
+  "banking_outlets": 6,
+  "has_internal_ombudsman": false
+}

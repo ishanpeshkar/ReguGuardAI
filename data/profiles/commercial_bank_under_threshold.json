@@ -1,0 +1,9 @@
+{
+  "company_name": "Kiran Urban Co-op Bank",
+  "entity_type": "Commercial Bank",
+  "services": ["Retail Banking", "Fixed Deposits"],
+  "asset_size": "800 Cr",
+  "annual_turnover": "800 Cr",
+  "banking_outlets": 4,
+  "has_internal_ombudsman": false
+}
