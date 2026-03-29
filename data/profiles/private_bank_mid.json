@@ -1,0 +1,7 @@
+{
+  "company_name": "Bharat Heritage Bank",
+  "entity_type": "Commercial Bank",
+  "services": ["Savings Accounts", "Corporate Loans", "Dividends"],
+  "asset_size": "15000 Cr",
+  "has_internal_ombudsman": true
+}
