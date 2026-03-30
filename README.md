@@ -191,7 +191,7 @@ See `IMPACT_MODEL.md` for assumptions and annualized estimate logic.
 - 3-minute pitch video: add link here before final submission
 
 ```text
-Pitch Video URL: <ADD_YOUR_VIDEO_LINK>
+Pitch Video URL: https://drive.google.com/file/d/1MtKuR2L3k7abV8LP13RXkyH04cqv38fP/view?usp=sharing
 ```
 
 ## Current Limitations

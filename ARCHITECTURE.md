@@ -38,27 +38,34 @@ A reliable, standardized text representation of each circular that can be used b
 
 ## Layer 2: Logic Layer (Multi-Agent Reasoning)
 
-The core logic is implemented with four specialized AI agents orchestrated centrally.
+The core logic is implemented with five specialized agents orchestrated centrally.
 
-### Agent A: Change Detector
+### Agent 1: Ingestion Agent (The Librarian)
+
+- Implemented by `PDFProcessingEngine` in `src/utils/pdf_engine.py`.
+- Extracts text from old/new circular PDFs using `pypdf`.
+- Supports chunking and FAISS embedding workflows for semantic retrieval extensions.
+- Produces normalized text input for downstream reasoning agents.
+
+### Agent 2: Change Detector (The Auditor)
 
 - Compares old and new circular versions.
 - Identifies differences in obligations, dates, thresholds, penalties, and scope.
 - Produces a concise change summary for downstream risk and applicability checks.
 
-### Agent B: Compliance Reasoner
+### Agent 3: Compliance Reasoner (The Lawyer)
 
 - Evaluates whether detected changes apply to a target entity profile.
 - Reads business metadata (entity type, services, turnover, geography).
 - Produces applicability rationale in plain language.
 
-### Agent C: Risk Scorer
+### Agent 4: Risk Scorer (The Analyst)
 
 - Assigns operational/regulatory risk signal (for example: low, medium, high).
 - Considers severity, implementation effort, and potential penalty exposure.
 - Converts narrative findings into a prioritization cue for compliance teams.
 
-### Agent D: Report Generator
+### Agent 5: Report Generator (The Writer)
 
 - Synthesizes outputs from all prior agents.
 - Produces executive summary + action-oriented output.
@@ -76,6 +83,7 @@ Responsibilities:
   - report
   - audit_trail
 - Centralizes workflow timing and operational logging.
+- Applies deliberate cooldown waits between model-intensive calls to reduce quota/rate-limit failures.
 
 Outcome:
 
@@ -102,6 +110,7 @@ Guardrails make the system safe and enterprise-usable.
 - Try/except fallback in agents prevents full app failure on API errors/rate limits.
 - Returns controlled fallback messages when model service is unavailable.
 - Keeps the UI responsive and operational during transient model outages.
+- LLM invocations are configured with low retry behavior for predictable failure handling.
 
 Outcome:
 
@@ -146,6 +155,14 @@ A practical decision-support interface, not just a model endpoint.
 - Consistency: standardized outputs across analysts and teams.
 - Transparency: auditable reasoning for governance and controls.
 - Resilience: graceful degradation when external LLM services are limited.
+
+## Hackathon Criteria Mapping
+
+- Domain expertise depth: finance-specific workflow for RBI circular deltas and applicability.
+- Compliance/guardrails: profile-scoped reasoning, audit trail, and fallback controls.
+- Edge-case handling: controlled behavior during missing context or model/API throttling.
+- Full task completion: ingestion to final actionable report in one orchestrated run.
+- Auditability: intermediate outputs are persisted in `audit_trail` and shown in dashboard tabs.
 
 ## Future Enhancements
 
